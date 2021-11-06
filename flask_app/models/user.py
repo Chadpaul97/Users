@@ -25,3 +25,18 @@ class User:
             users.append(new_user)
         return users
 
+    @classmethod
+    def delete_user(cls,data):
+        query = "DELETE FROM users WHERE id = %(id)s"
+        return connectToMySQL("user_schema").query_db(query,data)
+
+    @classmethod
+    def edit_user(cls,data):
+        query = "UPDATE users SET first_name=%(first_name)s,last_name=%(last_name)s, email=%(email)s WHERE id = %(id)s"
+        return connectToMySQL("user_schema").query_db(query,data)
+
+    @classmethod
+    def get_user_info(cls,data):
+        query = "SELECT * FROM users WHERE id = %(id)s"
+        user = connectToMySQL("user_schema").query_db(query,data)
+        return cls(user[0])

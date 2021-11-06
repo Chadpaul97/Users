@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <style>
+        body {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resultpage {
+            border: 2px solid black;
+            width: 700px;
+            height: 600px;
+        }
+
+        .result2 {
+            font-size: 25px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resultpage">
+        <h1>User {{user.id}}</h1>
+        <a href="/">Home</a>
+        <div class="result">
+            <div class="result2">
+                <p>Full Name:</p>
+                <p>{{user.first_name + " " + user.last_name}}</p>
+            </div>
+            <div class="result2">
+                <p>Email</p>
+                <p>{{user.email}}</p>
+            </div>
+            <div class="result2">
+                <p>Created On:</p>
+                <p>{{user.created_at}}</p>
+            </div>
+            <div class="result2">
+                <p>Updated At:</p>
+                <p>{{user.updated_at}}</p>
+            </div>
+            <a href="/edit/{{user.id}}">Edit</a>|<a href="/delete/{{user.id}}">Delete</a>
+        </div>
+    </div>
+</body>
+
+</html>
